@@ -22,8 +22,13 @@ The API is in an initial V0 version, trying to get into the web world, experimen
 
 Serive | Description | method
 ------|------------|---------
-**id** | The item's unique id.|prueba
-deleted | `true` if the item is deleted.|prueba
+/Consecutivos/|/GetConsecutivo/{tmpCodalm}/{tmpIDProces}/{tmpAño}/{tmpMes}/{tmpIncrementar}|GET
+/Prices|/GetPrices/{codalm}|GET
+/Product|/Getproduct/{tmpCodalm}/{tmpLtsPrecios}/{tmpCodLinea}/{tmpCodsub}/{cant}/{all}|GET
+/Customers|/Getcustomers/{codven}|GET
+/Customers|/Getcustomers/{codven}/{cedula}|GET
+/Stores|/Getstores/{codalm}|GET
+/Users|/Getusers|GET
 
 For examples, a story: https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty
 
