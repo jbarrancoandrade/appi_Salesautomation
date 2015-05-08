@@ -30,6 +30,16 @@ Serive | Description | method | reply
 /Stores|/Getstores/{codalm}|GET|almacenes
 /Users|/Getusers|GET|usuarios del sistema
 
+## dependency
+Jar | Description
+--------|----------------
+sqljdc.jar| sql server 
+asm-3.1.jar | is an all purpose Java bytecode manipulation and analysis framework. It can be used to modify existing               classes or dynamically generate classes
+jersey-client-1.0.3.jar |.adsad
+jersey-core-1.0.3.jar   |asdas
+jersey-server-1.0.3.jar |dasd
+jsr311-api-1.0.jar      |dasdas
+gson-2.2.2.jar          |dasda
 
 
 
