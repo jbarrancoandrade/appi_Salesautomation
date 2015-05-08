@@ -8,11 +8,10 @@ we are developing a system to bring order online and do some consultations, all 
 
 ##  Versioning
 
-The API is based on using java 1.0.3 jersey
+The API is in an initial V0 version, trying to get into the web world, experimenting with these technologies
 
 ## Design
-
-The API is in an initial V0 version, trying to get into the web world, experimenting with these technologies
+The API is based on using java 1.0.3 jersey
 
 ## routes
 
