@@ -35,11 +35,11 @@ Jar | Description
 --------|----------------
 sqljdc.jar| sql server 
 asm-3.1.jar | is an all purpose Java bytecode manipulation and analysis framework. It can be used to modify existing               classes or dynamically generate classes
-jersey-client-1.0.3.jar |.adsad
-jersey-core-1.0.3.jar   |asdas
-jersey-server-1.0.3.jar |dasd
-jsr311-api-1.0.jar      |dasdas
-gson-2.2.2.jar          |dasda
+jersey-client-1.0.3.jar |in order to simplify development of RESTful Web services and their clients in Java
+jersey-core-1.0.3.jar   |in order to simplify development of RESTful Web services and their clients in Java
+jersey-server-1.0.3.jar |in order to simplify development of RESTful Web services and their clients in Java
+jsr311-api-1.0.jar      |handling of java api
+gson-2.2.2.jar          |Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. 
 
 
 
