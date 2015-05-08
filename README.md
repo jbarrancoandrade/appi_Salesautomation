@@ -1,35 +1,21 @@
 # appi_Salesautomation
 Online ordering system and consultations
 
-# Hacker News API
-
 ## Overview
 
-In partnership with [Firebase](https://www.firebase.com), we're making the public Hacker News data available in near real time. Firebase enables easy access from [Android](https://www.firebase.com/docs/android/), [iOS](https://www.firebase.com/docs/ios/) and the [web](https://www.firebase.com/docs/web/). Servers aren't left out; there's also [REST](https://www.firebase.com/docs/rest/) support.
+The company Quality Systems group
+we are developing a system to bring order online and do some consultations, all as value added to the system QualityErp one of our main products
 
-If you can use one of the many [Firebase client libraries](https://www.firebase.com/docs/) you really should. The libraries handle networking efficiently and can raise events when things change. Be sure to check them out.
+##  Versioning
 
-Please email api@ycombinator.com if you find any bugs.
-
-## URI and Versioning
-
-The API is based at https://hacker-news.firebaseio.com.
-
-We hope to improve it over time, and may later enable access to private per-user data using OAuth. The changes won't always be backward compatible, so we're going to version the API. This first iteration will live at https://hacker-news.firebaseio.com/v0/ and is structured as described below.
-
-For versioning purposes, only removal of a non-optional field or alteration of an existing field will be considered incompatible changes. *Clients should gracefully handle additional fields they don't expect, and simply ignore them.*
+The API is based on using java 1.0.3 jersey
 
 ## Design
 
-The v0 API is essentially a dump of our in-memory data structures. We know, what works great locally in memory isn't so hot over the network. Many of the awkward things are just the way HN works internally. Want to know the total number of comments on an article? Traverse the tree and count. Want to know the children of an item? Load the item and get their IDs, then load them. The newest page? Starts at item maxid and walks backward, keeping only the top level stories. Same for Ask, Show, etc.
-
-I'm not saying this to defend it - It's not the ideal public API, but it's the one we could release in the time we had. While awkward, it's possible to implement most of HN using it.
+The API is in an initial V0 version, trying to get into the web world, experimenting with these technologies
 
 ## Items
 
-Stories, comments, jobs, Ask HNs and even polls are just items. They're identified by their ids, which are unique integers, and live under https://hacker-news.firebaseio.com/v0/item/<id>.
-
-All items have some of the following properties, with require properties in bold:
 
 Field | Description
 ------|------------
