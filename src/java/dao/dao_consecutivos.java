@@ -87,48 +87,85 @@ public class dao_consecutivos {
             if (!Cur_ParConsec.next()) {
                 return "";
             } else {
-                String consulta3 = "";
 
-                PreparedStatement ps3 = null;
+                try {
+                    String consulta3 = "";
 
-                ResultSet Cur_Consec = null;
-                if (null != Cur_ParConsec.getString("TipCon").toUpperCase()) {
+                    PreparedStatement ps3 = null;
 
-                    switch (Cur_ParConsec.getString("TipCon").toUpperCase()) {
-                        case "A":
-                            consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
-                                    + "  FROM Gen_ConsecA \n"
-                                    + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' AND AÑO='" + tmpAño + "'";
-                            ps3 = connection.prepareStatement(consulta3);
-                            Cur_Consec = ps3.executeQuery();
+                    ResultSet Cur_Consec = null;
+                    if (null != Cur_ParConsec.getString("TipCon").toUpperCase()) {
 
-                            break;
-                        case "M":
-                            consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
-                                    + "  FROM Gen_ConsecM \n"
-                                    + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' AND AÑO='" + tmpAño + "' AND MES='" + tmpMes + "'";
-                            ps3 = connection.prepareStatement(consulta3);
-                            Cur_Consec = ps3.executeQuery();
+                        switch (Cur_ParConsec.getString("TipCon").toUpperCase()) {
+                            case "A":
+                                consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
+                                        + "  FROM Gen_ConsecA \n"
+                                        + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' AND AÑO='" + tmpAño + "'";
+                                ps3 = connection.prepareStatement(consulta3);
+                                Cur_Consec = ps3.executeQuery();
 
-                            break;
-                        case "S":
-                            consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
-                                    + "  FROM Gen_ConsecS \n"
-                                    + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' ";
-                            ps3 = connection.prepareStatement(consulta3);
-                            Cur_Consec = ps3.executeQuery();
+                                break;
+                            case "M":
+                                consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
+                                        + "  FROM Gen_ConsecM \n"
+                                        + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' AND AÑO='" + tmpAño + "' AND MES='" + tmpMes + "'";
+                                ps3 = connection.prepareStatement(consulta3);
+                                Cur_Consec = ps3.executeQuery();
 
-                            break;
+                                break;
+                            case "S":
+                                consulta3 = "SELECT ISNULL(CONSECUTIVO,0) AS CONSECUTIVO \n"
+                                        + "  FROM Gen_ConsecS \n"
+                                        + "  WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' ";
+                                ps3 = connection.prepareStatement(consulta3);
+                                Cur_Consec = ps3.executeQuery();
+
+                                break;
+                        }
+
+                        if (!Cur_Consec.next()) {
+
+                            String consulta9 = "";
+
+                            PreparedStatement ps9 = null;
+
+                            ResultSet Cur_Consec1 = null;
+
+                            if (null != Cur_ParConsec.getString("TipCon").toUpperCase()) {
+
+                                switch (Cur_ParConsec.getString("TipCon").toUpperCase()) {
+                                    case "A":
+                                        consulta9 = "INSERT INTO Gen_ConsecA (Codalm,CodCon,Año,Consecutivo) VALUES ('" + tmpCodalm + "','" + tmpCodCon + "','" + tmpAño + "',0)";
+                                        ps9 = connection.prepareStatement(consulta9);
+                                        Cur_Consec1 = ps9.executeQuery();
+
+                                        break;
+                                    case "M":
+                                        consulta9 = "INSERT INTO Gen_ConsecM (Codalm,CodCon,Año,Mes,Consecutivo) VALUES ('" + tmpCodalm + "','" + tmpCodCon + "','" + tmpAño + "','" + tmpMes + "',0)";
+                                        ps9 = connection.prepareStatement(consulta9);
+                                        Cur_Consec1 = ps9.executeQuery();
+
+                                        break;
+                                    case "S":
+                                        consulta9 = "INSERT INTO Gen_ConsecS (Codalm,CodCon,Consecutivo) VALUES ('" + tmpCodalm + "','" + tmpCodCon + "',0)";
+                                        ps9 = connection.prepareStatement(consulta9);
+                                        Cur_Consec1 = ps9.executeQuery();
+
+                                        break;
+                                }
+                            }
+
+                            tmpConsecutivo = 1;
+                        } else {
+
+                            tmpConsecutivo = Cur_Consec.getInt("Consecutivo") + 1;
+
+                        }
+
                     }
 
-                    if (!Cur_Consec.next()) {
-
-                        tmpConsecutivo = 1;
-                    } else {
-                        tmpConsecutivo = Cur_Consec.getInt("Consecutivo") + 1;
-
-                    }
-
+                } catch (Exception e) {
+                    System.err.println("ERROR SELECCIONANDO O CREANDO CONSECUTIVO " + e.getCause());
                 }
 
                 if (null != Cur_ParConsec.getString("TipCon").toUpperCase()) {
@@ -204,7 +241,7 @@ public class dao_consecutivos {
 
         } catch (Exception e) {
 
-            System.out.print("Error Incrementado El Consecutivo" + e.getCause() + "-" + e.getMessage() + "\n");
+            System.out.print("ERROR INCREMENTANDO EL CONSECUTIVO" + e.getCause() + "-" + e.getMessage() + "\n");
         }
 
         return tmpConsec;
