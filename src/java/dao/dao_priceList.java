@@ -17,6 +17,8 @@ import java.util.ArrayList;
  */
 public class dao_priceList {
 
+    
+    
     /**
      *
      * @param connection

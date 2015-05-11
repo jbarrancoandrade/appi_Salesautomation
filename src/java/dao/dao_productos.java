@@ -17,6 +17,7 @@ import model.product;
  */
 public class dao_productos {
 
+   
     /**
      * tmpcodalm es el codigo de almacen a consultar
      * tmpLtsPrecios es el codigo de lista precios a usar

@@ -86,6 +86,8 @@ public class dao_Client {
         }
     }
 
+    
+    
     /**
      * obtain client id
      * @param connection

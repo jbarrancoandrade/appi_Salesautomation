@@ -17,6 +17,8 @@ import java.util.ArrayList;
  */
 public class dao_user {
 
+   
+    
     /**
      * get all user list
      *
@@ -74,27 +76,5 @@ public class dao_user {
     }
 
   
-    public userObject Login(Connection connection, String Username,String password) throws Exception {
-         userObject userobjecto = new userObject();
-        try {
-            String consulta = "select *\n"
-                    + "from cfg_usuarios\n"
-                    + "where username='"+Username+"' and pwdweb='"+password+"'";
-            PreparedStatement ps = connection.prepareStatement(consulta);
-            ResultSet rs = ps.executeQuery();
-
-             while (rs.next()) {
-                userobjecto.setUserName(rs.getString("username"));
-                userobjecto.setPwdweb(rs.getString("pwdweb"));
-                
-              
-
-               
-            }
-            return userobjecto;
-        } catch (Exception e) {
-            throw e;
-        }
-        
-    }
+ 
 }

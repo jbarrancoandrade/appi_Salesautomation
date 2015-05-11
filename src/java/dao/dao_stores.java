@@ -17,6 +17,8 @@ import java.util.ArrayList;
  */
 public class dao_stores {
 
+   
+    
     /**
      * get all stores by codalm
      * @param connection

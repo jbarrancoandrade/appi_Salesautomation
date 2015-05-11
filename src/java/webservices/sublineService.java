@@ -9,43 +9,41 @@ package webservices;
  *
  * @author jhonbarranco
  */
-import dto.priceList;
 import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import model.ClientManager;
 import com.google.gson.Gson;
-import dto.ClientObject;
+import dto.subLine;
 import javax.ws.rs.PathParam;
-import model.PriceManager;
+import model.sublineManeger;
 
-/**
- *
- * @author jhonbarranco
- */
-@Path("/Prices") 
-public class PriceServices {
+
+
+@Path("/Sublineas") 
+public class sublineService {
     
-     
     @GET
-    @Path("/GetPrices/{codalm}")
+    @Path("/GetSublin/{codlinea}")
     @Produces("application/json")
-    public String price(@PathParam("codalm") String codalm) {
-        String prices = null;
+    public String Subline(@PathParam("codlinea") String codlinea) {
+        String Subli = null;
         
         try {
-            ArrayList<priceList> priceData = null;
-            PriceManager priceManager = new PriceManager();
-            priceData = priceManager.getPrices(codalm);
+            ArrayList<subLine> SubliData = null;
+            sublineManeger smaManeger = new sublineManeger();
+            SubliData = smaManeger.GetSubline(codlinea);
             Gson gson = new Gson();
           
-            prices  = gson.toJson(priceData);
+           Subli = gson.toJson(SubliData);
         } catch (Exception e) {
             System.out.println("Exception Error"); //Console 
         }
        
-        return prices;
+        return Subli;
     }
+    
+    
+    
     
 }

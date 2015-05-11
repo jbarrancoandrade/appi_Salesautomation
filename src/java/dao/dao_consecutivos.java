@@ -18,6 +18,7 @@ import java.util.ArrayList;
  */
 public class dao_consecutivos {
 
+    
     /**
      * **********************************************************************************************
      * Función que administra los consecutivos en el Sistema

@@ -9,43 +9,41 @@ package webservices;
  *
  * @author jhonbarranco
  */
-import dto.priceList;
+
 import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import model.ClientManager;
+import model.modelConsecutivos;
 import com.google.gson.Gson;
-import dto.ClientObject;
+import dto.alm_pedidos;
 import javax.ws.rs.PathParam;
-import model.PriceManager;
+import model.alm_pedModel;
 
-/**
- *
- * @author jhonbarranco
- */
-@Path("/Prices") 
-public class PriceServices {
+@Path("/Pedidos")
+public class Pedidos {
     
-     
     @GET
-    @Path("/GetPrices/{codalm}")
+    @Path("/GetPed/{codven}")
     @Produces("application/json")
-    public String price(@PathParam("codalm") String codalm) {
-        String prices = null;
+    public String Ped(@PathParam("codven") String codven) {
+        String pedidos = null;
         
         try {
-            ArrayList<priceList> priceData = null;
-            PriceManager priceManager = new PriceManager();
-            priceData = priceManager.getPrices(codalm);
+            ArrayList<alm_pedidos> pData = null;
+            alm_pedModel pmanager = new alm_pedModel();
+            pData = pmanager.GetLisped(codven);
             Gson gson = new Gson();
-          
-            prices  = gson.toJson(priceData);
+            System.out.println(gson.toJson(pData));
+            pedidos  = gson.toJson(pData);
         } catch (Exception e) {
             System.out.println("Exception Error"); //Console 
         }
        
-        return prices;
+        return pedidos;
     }
+    
+    
+    
     
 }

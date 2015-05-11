@@ -5,47 +5,47 @@
  */
 package webservices;
 
-/**
- *
- * @author jhonbarranco
- */
-import dto.priceList;
+
 import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import model.ClientManager;
 import com.google.gson.Gson;
+import dto.AlmInvent;
 import dto.ClientObject;
+import dto.priceList;
 import javax.ws.rs.PathParam;
+import model.InvenManager;
 import model.PriceManager;
+
 
 /**
  *
  * @author jhonbarranco
  */
-@Path("/Prices") 
-public class PriceServices {
+@Path("/Invent") 
+public class InventServices {
     
+       
      
     @GET
-    @Path("/GetPrices/{codalm}")
+    @Path("/GetInvent/{codalm}")
     @Produces("application/json")
-    public String price(@PathParam("codalm") String codalm) {
-        String prices = null;
+    public String client(@PathParam("codalm") String codalm) {
+        String invents = null;
         
         try {
-            ArrayList<priceList> priceData = null;
-            PriceManager priceManager = new PriceManager();
-            priceData = priceManager.getPrices(codalm);
+            ArrayList<AlmInvent> inventDat = null;
+            InvenManager manager = new InvenManager();
+            inventDat = manager.GetInvents(codalm);
             Gson gson = new Gson();
-          
-            prices  = gson.toJson(priceData);
+             invents  = gson.toJson(inventDat);
         } catch (Exception e) {
             System.out.println("Exception Error"); //Console 
         }
        
-        return prices;
+        return  invents;
     }
+    
     
 }
