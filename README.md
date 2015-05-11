@@ -28,6 +28,13 @@ Serive | Description | method | reply
 /Customers|/Getcustomers/{codven}/{cedula}|GET|cliente por cedula
 /Stores|/Getstores/{codalm}|GET|almacenes
 /Users|/Getusers|GET|usuarios del sistema
+/Invent|/GetInvent/{codalm}|GET|Obtener Inventarios por almacen
+/Lines|/GetLines|GET|Obtener todas las categorias
+/Sublineas|/GetSublin/{codlinea}|obtener subcaterorias de acuerdo a la categoria
+/Pedidos|/GetPed/{codven}|Obtener lista de pedidos, realizados
+
+
+
 
 ## dependency
 Jar | Description
