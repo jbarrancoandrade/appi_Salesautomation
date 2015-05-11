@@ -30,8 +30,8 @@ Serive | Description | method | reply
 /Users|/Getusers|GET|usuarios del sistema
 /Invent|/GetInvent/{codalm}|GET|Obtener Inventarios por almacen
 /Lines|/GetLines|GET|Obtener todas las categorias
-/Sublineas|/GetSublin/{codlinea}|obtener subcaterorias de acuerdo a la categoria
-/Pedidos|/GetPed/{codven}|Obtener lista de pedidos, realizados
+/Sublineas|/GetSublin/{codlinea}|GET|obtener subcaterorias de acuerdo a la categoria
+/Pedidos|/GetPed/{codven}|GET|Obtener lista de pedidos, realizados
 
 
 
