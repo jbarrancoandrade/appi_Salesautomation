@@ -22,18 +22,32 @@ public class dao_pedidos {
      *
      * @param connection
      * @param codven
+     * @param Estado
      * @return
      * @throws Exception
      */
-    public ArrayList<alm_pedidos> GetListPed(Connection connection, String codven) throws Exception {
+    public ArrayList<alm_pedidos> GetListPed(Connection connection, String codven,String Estado) throws Exception {
         ArrayList<alm_pedidos> pedData = new ArrayList<alm_pedidos>();
+         System.out.println("LO QUE TRAE ESTADO "+Estado);
+         
+         String consul;
+         if (Estado.isEmpty()) {
+            consul="AND VEN_MaeCart.estado=''";
+        }else{
+             consul="AND VEN_MaeCart.estado='"+Estado+"'";
+         }
+                 
+         
+        
         try {
             String consulta = "SELECT VEN_MaeCart.NumPed,VEN_MaeCart.FecPed,VEN_MaeCart.FecSys,\n"
                     + "       VEN_MaeCart.CodUsu,VEN_MaeCart.PC,VEN_MaeCart.Codter,cnt_terceros.nombre_com,\n"
                     + "       VEN_MaeCart.CodVen,VEN_MaeCart.CodList\n"
                     + "FROM   VEN_MaeCart\n"
                     + "LEFT   JOIN cnt_terceros ON cnt_terceros.Codter = VEN_MaeCart.Codter\n"
-                    + "WHERE    VEN_MaeCart.codven='001' and VEN_MaeCart.estado='P'";
+                    + "WHERE    VEN_MaeCart.codven='"+codven+"' "+consul+"";
+            
+            System.out.println(consulta);
 
             PreparedStatement ps = connection.prepareStatement(consulta);
             ResultSet rs = ps.executeQuery();

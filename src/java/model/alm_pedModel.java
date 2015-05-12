@@ -20,17 +20,20 @@ public class alm_pedModel {
     /**
      * lista ped
      * @param codven
+     * @param estado
      * @return
      * @throws Exception 
      */
-      public ArrayList<alm_pedidos> GetLisped(String codven) throws Exception {
+      public ArrayList<alm_pedidos> GetLisped(String codven,String estado) throws Exception {
         ArrayList<alm_pedidos> peds = null;
         try {
             connection database = new connection();
             Connection connection = database.GetConnection();
             dao_pedidos  dao_ped1 = new dao_pedidos();
+           
+                System.out.println(estado);
             
-            peds = dao_ped1.GetListPed(connection, codven);
+            peds = dao_ped1.GetListPed(connection, codven,estado);
         } catch (Exception e) {
             throw e;
         }

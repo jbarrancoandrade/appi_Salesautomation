@@ -8,6 +8,8 @@ package webservices;
 /**
  *
  * @author jhonbarranco
+ * 
+ * 
  */
 
 import java.util.ArrayList;
@@ -24,20 +26,22 @@ import model.alm_pedModel;
 public class Pedidos {
     
     @GET
-    @Path("/GetPed/{codven}")
+    @Path("/GetPed/{codven}/{Estado}")
     @Produces("application/json")
-    public String Ped(@PathParam("codven") String codven) {
+    public String Ped(@PathParam("codven") String codven,@PathParam("Estado") String Estado) {
         String pedidos = null;
         
+       
         try {
+            
             ArrayList<alm_pedidos> pData = null;
             alm_pedModel pmanager = new alm_pedModel();
-            pData = pmanager.GetLisped(codven);
+            pData = pmanager.GetLisped(codven,Estado);
             Gson gson = new Gson();
-            System.out.println(gson.toJson(pData));
             pedidos  = gson.toJson(pData);
+            
         } catch (Exception e) {
-            System.out.println("Exception Error"); //Console 
+            System.out.println("Exception Error"); 
         }
        
         return pedidos;
