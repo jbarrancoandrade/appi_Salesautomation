@@ -31,7 +31,7 @@ Serive | Description | method | reply
 /Invent|/GetInvent/{codalm}|GET|Obtener Inventarios por almacen
 /Lines|/GetLines|GET|Obtener todas las categorias
 /Sublineas|/GetSublin/{codlinea}|GET|obtener subcaterorias de acuerdo a la categoria
-/Pedidos|/GetPed/{codven}|GET|Obtener lista de pedidos, realizados
+/Pedidos|/GetPed/{codven}/{Estado}|GET|Obtener lista de pedidos,por parametro de estado, osea "P" si ya fue pedido, vacio si no se a terminado y "A" si fue anulado
 
 
 
