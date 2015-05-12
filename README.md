@@ -19,7 +19,7 @@ The API is based on using java 1.0.3 jersey
 ### Edit
 **can change the server : http://localhost:8080** 
 
-Serive | Description | method | reply
+Service | Description | method | reply
 ------|------------|---------|------------
 /Consecutivos/|/GetConsecutivo/{tmpCodalm}/{tmpIDProces}/{tmpAño}/{tmpMes}/{tmpIncrementar}|GET|Consecutivo
 /Prices|/GetPrices/{codalm}|GET|Lista de precios
