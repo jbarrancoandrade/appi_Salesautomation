@@ -30,6 +30,7 @@ public class sublineService {
         String Subli = null;
         
         try {
+            
             ArrayList<subLine> SubliData = null;
             sublineManeger smaManeger = new sublineManeger();
             SubliData = smaManeger.GetSubline(codlinea);

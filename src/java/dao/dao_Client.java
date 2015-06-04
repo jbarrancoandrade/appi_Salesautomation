@@ -77,7 +77,6 @@ public class dao_Client {
                 clientobject.setCodZona(rs.getString("CodZona"));
                 clientobject.setPlazoCr(rs.getInt("PlazoCR"));
                 clientobject.setExentoIva(rs.getBoolean("ExentoIVA"));
-
                 ClientData.add(clientobject);
             }
             return ClientData;
@@ -86,22 +85,21 @@ public class dao_Client {
         }
     }
 
-    
-    
     /**
      * obtain client id
+     *
      * @param connection
      * @param codven
      * @param cedula
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
-    public ClientObject getclientByID(Connection connection, String codven,String cedula) throws Exception {
+    public ClientObject getclientByID(Connection connection, String codven, String cedula) throws Exception {
         ClientObject clientobject = new ClientObject();
         try {
             String consulta = "select *\n"
                     + "from ven_clientes\n"
-                    + "where codven='"+codven+"' and cedula='"+cedula+"'";
+                    + "where codven='" + codven + "' and cedula='" + cedula + "'";
             PreparedStatement ps = connection.prepareStatement(consulta);
             ResultSet rs = ps.executeQuery();
 
@@ -152,7 +150,7 @@ public class dao_Client {
         } catch (Exception e) {
             throw e;
         }
-        
+
     }
 
 }

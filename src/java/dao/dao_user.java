@@ -14,6 +14,7 @@ import java.util.ArrayList;
 /**
  *
  * @author jhonbarranco
+ * 
  */
 public class dao_user {
 
@@ -70,10 +71,15 @@ public class dao_user {
             }
 
             return userData;
+            
         } catch (Exception e) {
             throw e;
         }
     }
+    
+    
+    
+    
 
   
  

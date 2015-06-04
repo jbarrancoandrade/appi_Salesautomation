@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 public class dao_consecutivos {
 
-    
     /**
      * **********************************************************************************************
      * Función que administra los consecutivos en el Sistema
@@ -68,7 +67,7 @@ public class dao_consecutivos {
                         System.err.println("No se ha definido el consecutivo para el proceso  " + tmpIDProces + ", no puede realizar esta transacción hasta que realice esta configuración !");
                     } else {
                         tmpCodCon = Cur_ConfigConsec.getString("Codcon");
-                        System.out.println("codcon" + tmpCodCon);
+
                     }
                 }
             } catch (Exception e) {
@@ -206,7 +205,6 @@ public class dao_consecutivos {
 
                         switch (Cur_ParConsec.getString("TipCon").toUpperCase()) {
                             case "A":
-
                                 consulta4 = "UPDATE Gen_ConsecA \n"
                                         + "SET Consecutivo=Consecutivo+1\n"
                                         + "WHERE CODALM='" + tmpCodalm + "' AND CODCON='" + tmpCodCon + "' AND AÑO='" + tmpAño + "'";

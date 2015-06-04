@@ -18,11 +18,13 @@ import java.util.ArrayList;
 public class da_invent {
 
     /**
+     * 
      * Get Invent filter for codalm
      * @param connection
      * @param codalm
      * @return
      * @throws Exception 
+     * 
      */
     public ArrayList<AlmInvent> GetInvent(Connection connection, String codalm) throws Exception {
         ArrayList<AlmInvent> inventData = new ArrayList<AlmInvent>();

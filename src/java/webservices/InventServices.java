@@ -39,7 +39,7 @@ public class InventServices {
             InvenManager manager = new InvenManager();
             inventDat = manager.GetInvents(codalm);
             Gson gson = new Gson();
-             invents  = gson.toJson(inventDat);
+            invents  = gson.toJson(inventDat);
         } catch (Exception e) {
             System.out.println("Exception Error"); //Console 
         }

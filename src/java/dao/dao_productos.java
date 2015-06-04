@@ -63,9 +63,11 @@ public class dao_productos {
         }
         
         
+         String consulta ="";
+        
 
         try {
-            String consulta = "SELECT "+cantida+" alm_insumos.Codins,alm_insumos.Nomins,ISNULL(alm_imgInsumos.Graficos,0) AS Graficos,alm_insumos.refins,alm_insumos.EANINS,alm_insumos.UndIns,alm_insumos.codbar\n"
+            consulta = "SELECT "+cantida+" alm_insumos.Codins,alm_insumos.Nomins,ISNULL(alm_imgInsumos.Graficos,0) AS Graficos,alm_insumos.refins,alm_insumos.EANINS,alm_insumos.UndIns,alm_insumos.codbar\n"
                     + ",ven_Detaprecios.Valvta,ven_Detaprecios.MargenDcto,ven_Detaprecios.VALVTAMIN,alm_invent.Caninv,Ven_Ivas.MargenIva\n"
                     + "FROM  alm_insumos\n"
                     + "LEFT JOIN alm_imgInsumos ON alm_imgInsumos.codins=alm_insumos.Codins\n"

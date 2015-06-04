@@ -22,6 +22,7 @@ public class dao_lineas {
      * @param connection
      * @return
      * @throws Exception
+     * 
      */
     public ArrayList<Line> GetLineas(Connection connection) throws Exception {
         ArrayList<Line> LineData = new ArrayList<Line>();
