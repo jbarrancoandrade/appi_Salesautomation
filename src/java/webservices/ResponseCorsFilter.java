@@ -16,23 +16,32 @@ import javax.ws.rs.core.Response.ResponseBuilder;
  * @author jhonbarranco
  */
 public class ResponseCorsFilter implements ContainerResponseFilter {
-
-    @Override
+    
+    /**
+     * Filter Nuevo
+     * @param req
+     * @param contResp
+     * @return 
+     */
+     @Override
     public ContainerResponse filter(ContainerRequest req, ContainerResponse contResp) {
+ 
         ResponseBuilder resp = Response.fromResponse(contResp.getResponse());
         resp.header("Access-Control-Allow-Origin", "*")
                 .header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-
+ 
         String reqHead = req.getHeaderValue("Access-Control-Request-Headers");
-
-        if (null != reqHead && !reqHead.equals("")) {
+ 
+        if(null != reqHead && !reqHead.equals("")){
             resp.header("Access-Control-Allow-Headers", reqHead);
         }
-
+ 
         contResp.setResponse(resp.build());
-        return contResp;
+            return contResp;
     }
+    
+    
 
+   
+    
 }
-
-

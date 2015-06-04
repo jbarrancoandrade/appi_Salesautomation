@@ -22,8 +22,6 @@ import model.LineManager;
 
 @Path("/Lines")
 public class Lineservices {
-   
-    
     @GET
     @Path("/GetLines")
     @Produces("application/json")
@@ -31,14 +29,12 @@ public class Lineservices {
         String line = null;
         
         try {
-            
             ArrayList<Line> LineDat = null;
             LineManager a = new LineManager();
             LineDat = a.getLine();
             Gson gson = new Gson();
            
             line   = gson.toJson(LineDat);
-            
         } catch (Exception e) {
             System.out.println("Exception Error"); //Console 
         }

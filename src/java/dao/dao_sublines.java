@@ -34,7 +34,6 @@ public class dao_sublines {
 
                 subliData.add(slines);
             }
-            
             return subliData;
         } catch (Exception e) {
             throw e;

@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 import javax.ws.rs.PathParam;
 
 @Path("/Consecutivos")
-public class Consucutivo { 
+public class Consucutivo {
 
     @GET
     @Path("/GetConsecutivo/{tmpCodalm}/{tmpIDProces}/{tmpAño}/{tmpMes}/{tmpIncrementar}")

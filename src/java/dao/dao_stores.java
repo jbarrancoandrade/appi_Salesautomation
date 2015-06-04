@@ -15,7 +15,10 @@ import java.util.ArrayList;
  *
  * @author jhonbarranco
  */
-public class dao_stores { 
+public class dao_stores {
+
+   
+    
     /**
      * get all stores by codalm
      * @param connection

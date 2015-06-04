@@ -6,21 +6,18 @@
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-   
     <servlet>
         <servlet-name>ServletAdaptor</servlet-name>
         <servlet-class>com.sun.jersey.server.impl.container.servlet.ServletAdaptor</servlet-class>
         <init-param>
-            <description>corsParameter</description>
             <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
             <param-value>webservices.ResponseCorsFilter</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-   
     <servlet-mapping>
         <servlet-name>ServletAdaptor</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-
-    </web-app>
+   
+</web-app>
