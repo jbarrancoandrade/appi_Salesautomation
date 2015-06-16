@@ -19,7 +19,7 @@ The API is based on using java 1.0.3 jersey
 ### Edit
 **can change the server : http://localhost:8080** 
 
-Serive | Description | method | reply
+Service | Description | method | reply
 ------|------------|---------|------------
 /Consecutivos/|/GetConsecutivo/{tmpCodalm}/{tmpIDProces}/{tmpAño}/{tmpMes}/{tmpIncrementar}|GET|Consecutivo
 /Prices|/GetPrices/{codalm}|GET|Lista de precios
@@ -31,7 +31,7 @@ Serive | Description | method | reply
 /Invent|/GetInvent/{codalm}|GET|Obtener Inventarios por almacen
 /Lines|/GetLines|GET|Obtener todas las categorias
 /Sublineas|/GetSublin/{codlinea}|GET|obtener subcaterorias de acuerdo a la categoria
-/Pedidos|/GetPed/{codven}|GET|Obtener lista de pedidos, realizados
+/Pedidos|/GetPed/{codven}/{Estado}|GET|Obtener lista de pedidos,por parametro de estado, osea "P" si ya fue pedido, vacio si no se a terminado y "A" si fue anulado
 
 
 
