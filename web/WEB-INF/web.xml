@@ -15,6 +15,7 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <!--comentario-->
     <servlet-mapping>
         <servlet-name>ServletAdaptor</servlet-name>
         <url-pattern>/rest/*</url-pattern>

@@ -40,7 +40,7 @@ public class ResponseCorsFilter implements ContainerResponseFilter {
             return contResp;
     }
     
-    
+    //vacio
 
    
     
